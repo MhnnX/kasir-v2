@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/test', function () {
+    return view('test-export-pdf');
 });
 
-Route::get('/login', 'AuthManageController@viewLogin')->name('login');
+Route::get('/', 'AuthManageController@viewLogin')->name('login');
 Route::post('/verify_login', 'AuthManageController@verifyLogin');
 Route::post('/first_account', 'UserManageController@firstAccount');
 

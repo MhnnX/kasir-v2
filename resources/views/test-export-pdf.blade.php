@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Laporan Pemasukan ({{ date('d M, Y', strtotime($tgl_awal)) . ' - ' . date('d M, Y', strtotime($tgl_akhir))}})</title>
+	<title>Laporan Pemasukan</title>
 	<style type="text/css">
 		html{
 			font-family: "Arial", sans-serif;
@@ -129,10 +129,11 @@
 	<div class="header">
 		<table class="w-100">
 			<tr>
+				<!-- <td class="img-td text-left"><img src="{{ asset('icons/logo-mini2.png') }}"></td> -->
 				<td class="text-left" colspan="2">
-					<p class="text-12 txt-dark d-block mb-1">{{ $market->nama_toko }}</p>
-					<p class="text-10 txt-dark d-block">{{ $market->alamat }}</p>
-					<p class="text-10 txt-dark d-block">{{ $market->no_telp }}</p>
+					<p class="text-12 txt-dark d-block mb-1">Nama Toko</p>
+					<p class="text-10 txt-dark d-block">Alamat</p>
+					<p class="text-10 txt-dark d-block">08128274113010</p>
 				</td>
 				<td class="text-right">
 					<p class="text-20 txt-blue font-bold">LAPORAN PEMASUKAN</p>
@@ -140,31 +141,18 @@
 			</tr>
 			<tr>
 				<td class="text-left txt-blue text-12 font-bold pt-30" colspan="2">Periode Laporan</td>
-				<td class="text-right text-12 txt-dark pt-30">{{ \Carbon\Carbon::now()->isoFormat('DD MMM, Y') }}</td>
+				<td class="text-right text-12 txt-dark pt-30"></td>
 			</tr>
 			<tr>
-				<td class="text-left text-12 txt-dark2" colspan="2">{{ date('d M, Y', strtotime($tgl_awal)) . ' - ' . date('d M, Y', strtotime($tgl_akhir))}}</td>
-				@php
-				$nama_users = explode(' ',auth()->user()->nama);
-				$nama_user = $nama_users[0];
-				@endphp
-				<td class="text-right text-12 txt-blue">Oleh {{ $nama_user }}</td>
+				<td class="text-left text-12 txt-dark2" colspan="2">Tanggal Wal -Akhir</td>
+				<td class="text-right text-12 txt-blue">Oleh Nama Yg Export</td>
 			</tr>
 		</table>
 	</div>
 	<div class="body">
 		<ul>
-			@php
-			$pemasukan = 0;
-			@endphp
-			@foreach($dates as $date)
-			<li class="text-10 txt-light mt-2">{{ date('d M, Y', strtotime($date)) }}</li>
-			@php
-			$transactions = \App\Transaction::whereDate('transactions.created_at', $date)
-			->select('transactions.*')
-			->latest()
-			->get();
-			@endphp
+			<li class="text-10 txt-light mt-2">tanggal</li>
+		
 			<table class="w-100 mb-4">
 				<thead>
 					<tr>
@@ -172,35 +160,29 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($transactions as $transaction)
 					<tr>
 						<td>
-							<span class="text-12 txt-dark2 d-block">{{ $transaction->kode_transaksi }}</span>
-							<span class="text-10 txt-light d-block">Waktu : {{ date('H:i', strtotime($transaction->created_at)) }}</span>
+							<span class="text-12 txt-dark2 d-block">Kode</span>
+							<span class="text-10 txt-light d-block">Waktu : 2024</span>
 						</td>
 						<td>
 							<span class="text-10 txt-light d-block">Total</span>
-							<span class="txt-green text-12 d-block">Rp. {{ number_format($transaction->total,2,',','.') }}</span>
+							<span class="txt-green text-12 d-block">Rp. 0000</span>
 						</td>
-						@php
-						$pemasukan += $transaction->total;
-						@endphp
 						<td>
 							<span class="text-10 txt-light d-block">Bayar</span>
-							<span class="txt-dark2 text-12 d-block">Rp. {{ number_format($transaction->bayar,2,',','.') }}</span>
+							<span class="txt-dark2 text-12 d-block">Rp. 0000</span>
 						</td>
 						<td>
 							<span class="text-10 txt-light d-block">Kembali</span>
-							<span class="txt-dark text-12 d-block">Rp. {{ number_format($transaction->kembali,2,',','.') }}</span>
+							<span class="txt-dark text-12 d-block">Rp. 00000</span>
 						</td>
 						<td>
-							<span class="txt-dark2 text-12 d-block">{{ $transaction->kasir }}</span>
+							<span class="txt-dark2 text-12 d-block">Nama Kasir</span>
 						</td>
 					</tr>
-					@endforeach
 				</tbody>
 			</table>
-			@endforeach
 		</ul>
 		<table class="w-100">
 			<tfoot>
@@ -210,7 +192,7 @@
 				<tr>
 					<td class="text-14 pt-15 text-right">
 						<span class="mr-20">PEMASUKAN</span>
-						<span class="txt-blue font-bold">Rp. {{ number_format($pemasukan,2,',','.') }}</span>
+						<span class="txt-blue font-bold">Rp. 00000</span>
 					</td>
 				</tr>
 			</tfoot>

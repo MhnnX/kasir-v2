@@ -108,6 +108,16 @@
 	color: #ff6258;
 }
 
+.gudang-span{
+	color: #ffae00;
+	font-weight: bold;
+	background-color: rgba(255, 98, 88, 0.2);
+}
+
+.gudang-span:hover{
+	color: #ffbb00;
+}
+
 .btn-update{
 	background-color: #2d4fef;
 	color: #fff;

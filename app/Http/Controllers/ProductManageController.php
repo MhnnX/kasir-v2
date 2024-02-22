@@ -175,7 +175,12 @@ class ProductManageController extends Controller
                 if($req->stok <= 0)
                 {
                     $product->keterangan = "Habis";
-                }else{
+                }
+                elseif($req->stok == 1)
+                {
+                    $product->keterangan = "Gudang";
+                }
+                else{
                     $product->keterangan = "Tersedia";
                 }
                 $product->save();

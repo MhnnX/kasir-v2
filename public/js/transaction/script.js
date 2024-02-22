@@ -79,11 +79,11 @@ function tambahData(kode, nama, harga, stok, status) {
 
 $(document).on('click', '.btn-tambah', function(e){
   e.preventDefault();
-  var stok = parseInt($(this).parent().parent().next().next().next().children().first().text());
+  var stok = parseInt($(this).parent().parent().next().next().next().children().first().text()) - 1;
   var status = parseInt($(this).parent().parent().next().next().next().children().eq(1).text());
   var jumlah_barang = parseInt($(this).prev().val());
   if((stok > jumlah_barang && status == 1) || status == 0){
-    var tambah_barang = jumlah_barang + 1;
+    var tambah_barang = jumlah_barang + 1 ;
     $(this).prev().val(tambah_barang);
     $(this).next().children().first().html(tambah_barang);
     var harga = parseInt($(this).parent().parent().prev().children().first().val());

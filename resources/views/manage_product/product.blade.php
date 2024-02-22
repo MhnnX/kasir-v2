@@ -209,11 +209,18 @@
                   <td><span class="ammount-box bg-green"><i class="mdi mdi-coin"></i></span>Rp. {{ number_format($product->harga,2,',','.') }}</td>
                   @if($supply_system->status == true)
                   <td>
-                    @if($product->keterangan == 'Tersedia')
+                  <!-- @if($product->keterangan == 'Tersedia')
+                  <span class="btn tersedia-span">{{ $product->keterangan }}</span>
+                  @else
+                  <span class="btn habis-span">{{ $product->keterangan }}</span>
+                  @endif -->
+                  @if($product->keterangan == 'Tersedia')
                     <span class="btn tersedia-span">{{ $product->keterangan }}</span>
+                    @elseif($product->keterangan == 'Gudang')
+                    <span class="btn gudang-span">{{ $product->keterangan }}</span>
                     @else
                     <span class="btn habis-span">{{ $product->keterangan }}</span>
-                    @endif
+                  @endif
                   </td>
                   @endif
                   <td>

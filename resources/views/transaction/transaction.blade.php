@@ -64,7 +64,7 @@
               <ul class="list-group product-list">
                 @foreach($products as $product)
                 @if($supply_system->status == true)
-                @if($product->stok != 0)
+                @if($product->stok != 0 && $product->stok != 1)
                 <li class="list-group-item d-flex justify-content-between align-items-center active-list">
                   <div class="text-group">
                     <p class="m-0">{{ $product->kode_barang }}</p>

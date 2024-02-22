@@ -144,7 +144,6 @@
 	<div class="header">
 		<table class="w-100">
 			<tr>
-				<td class="img-td text-left"><img src="{{ asset('icons/logo-mini2.png') }}"></td>
 				<td class="text-left">
 					<p class="text-12 txt-dark d-block mb-1">{{ $market->nama_toko }}</p>
 					<p class="text-10 txt-dark d-block">{{ $market->alamat }}</p>
@@ -251,8 +250,7 @@
 	<div class="header">
 		<table class="w-100">
 			<tr>
-				<td class="img-td text-left"><img src="{{ asset('icons/logo-mini2.png') }}"></td>
-				<td class="text-left">
+				<td class="text-left" colspan="2">
 					<p class="text-12 txt-dark d-block mb-1">{{ $market->nama_toko }}</p>
 					<p class="text-10 txt-dark d-block">{{ $market->alamat }}</p>
 					<p class="text-10 txt-dark d-block">{{ $market->no_telp }}</p>
