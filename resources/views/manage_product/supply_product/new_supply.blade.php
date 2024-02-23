@@ -121,13 +121,10 @@
 										<div class="col-8">
 											<input type="text" class="form-control" name="kode_barang" readonly="">
 										</div>
-										<div class="col-4 left-min d-flex">
+										<div class="col-3">
 											<div class="btn-group">
 												<button class="btn btn-search" data-toggle="modal" data-target="#tableModal" type="button">
 													<i class="mdi mdi-magnify"></i>
-												</button>
-												<button class="btn btn-scan" data-toggle="modal" data-target="#scanModal" type="button">
-													<i class="mdi mdi-crop-free"></i>
 												</button>
 											</div>
 										</div>

@@ -194,6 +194,7 @@
 							<span class="txt-dark text-12 d-block">Rp. {{ number_format($transaction->kembali,2,',','.') }}</span>
 						</td>
 						<td>
+							<span class="text-10 txt-light d-block">Nama Kasir</span>
 							<span class="txt-dark2 text-12 d-block">{{ $transaction->kasir }}</span>
 						</td>
 					</tr>

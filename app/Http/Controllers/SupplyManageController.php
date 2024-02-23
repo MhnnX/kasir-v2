@@ -213,15 +213,13 @@ class SupplyManageController extends Controller
     public function createSupply(Request $req)
     {
         $id_account = Auth::id();
-        $check_access = Acces::where('user', $id_account)
-        ->first();
+        $check_access = Acces::where('user', $id_account)->first();
         $supply_system = Supply_system::first();
         if($check_access->kelola_barang == 1 && $supply_system->status == true){
             $jumlah_data = 0;
             foreach ($req->kode_barang_supply as $no => $kode_barang) {
-                $product_status = Product::where('kode_barang', $kode_barang)
-                ->first();
-                if($product_status->stok == 0){
+                $product_status = Product::where('kode_barang', $kode_barang)->first();
+                if($product_status->stok == 0 || $product_status->stok == 1){
                     $product_status->keterangan = 'Tersedia';
                     $product_status->save();
                 }

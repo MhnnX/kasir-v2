@@ -61,6 +61,8 @@
 	    			@else
 	    			<img src="{{ asset('images/instructions/ImportProduct2.jpg') }}" class="img-import">
 	    			@endif
+
+					<a href="{{ asset('images/instructions/ImportProduct2.jpg') }}">Download</a>
 	    		</div>
 	    	</div>
 	    </div>
@@ -79,9 +81,6 @@
 					  	<div class="col-12">
 					  		<div class="input-group">
 					  			<input type="text" class="form-control number-input" name="kode_barang" placeholder="Masukkan Kode Barang">
-					  			<div class="inpu-group-prepend">
-					  				<button class="btn btn-inverse-primary btn-sm btn-scan shadow-sm ml-2" type="button" data-toggle="modal" data-target="#scanModal"><i class="mdi mdi-crop-free"></i></button>
-					  			</div>
 					  		</div>
 					  	</div>
 						<div class="col-12 error-notice" id="kode_barang_error"></div>
@@ -114,16 +113,16 @@
 					<div class="form-group row">
 					  	<div class="col-lg-6 col-md-6 col-sm-12 space-bottom">
 					  		<div class="row">
-					  			<label class="col-12 font-weight-bold col-form-label">Berat Barang</label>
+					  			<label class="col-12 font-weight-bold col-form-label">Berat Barang <span class="text-muted font-weight-light">(opsional)</span></label>
 							  	<div class="col-12">
 							  		<div class="input-group">
 							  			<input type="text" class="form-control number-input" name="berat_barang" placeholder="Masukkan Berat Barang">
 							  			<div class="input-group-append">
 							  				<select class="form-control" name="satuan_berat">
+												<option value=""></option>
 							  					<option value="kg">Kilogram</option>
 							  					<option value="g">Gram</option>
 							  					<option value="ml">Miligram</option>
-							  					<option value="oz">Ons</option>
 							  					<option value="l">Liter</option>
 							  					<option value="ml">Mililiter</option>
 							  				</select>
@@ -134,7 +133,7 @@
 					  	</div>
 					  	<div class="col-lg-6 col-md-6 col-sm-12">
 					  		<div class="row">
-					  			<label class="col-12 font-weight-bold col-form-label">Merek Barang</label>
+					  			<label class="col-12 font-weight-bold col-form-label">Merek Barang <span class="text-muted font-weight-light">(opsional)</span></label>
 							  	<div class="col-12">
 							  		<input type="text" class="form-control" name="merek" placeholder="Masukkan Merek Barang">
 							  	</div>

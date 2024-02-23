@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Website POS</title>
+    <title>MHNNXKASIR</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}">
@@ -68,14 +68,14 @@
                 </div>
                 @if($cek_supply_system->status == 1)
                   @foreach($notification as $notif)
-                  @if($notif->stok != 0)
+                  @if($notif->stok != 1)
                   <a class="dropdown-item preview-item py-3">
                     <div class="preview-thumbnail">
                       <i class="mdi mdi-alert m-auto text-warning"></i>
                     </div>
                     <div class="preview-item-content">
                       <h6 class="preview-subject font-weight-normal text-dark mb-1">Barang Hampir Habis</h6>
-                      <p class="font-weight-light small-text mb-0"> Stok {{ $notif->nama_barang }} tersisa {{ $notif->stok }} </p>
+                      <p class="font-weight-light small-text mb-0"> Stok <span class="font-weight-bold">{{ $notif->nama_barang }}</span> tersisa {{ $notif->stok }} </p>
                     </div>
                   </a>
                   @else
@@ -85,7 +85,18 @@
                     </div>
                     <div class="preview-item-content">
                       <h6 class="preview-subject font-weight-normal text-dark mb-1">Barang Telah Habis</h6>
-                      <p class="font-weight-light small-text mb-0"> Stok barang {{ $notif->nama_barang }} telah habis</p>
+                      <p class="font-weight-light small-text mb-0"> Stok <span class="font-weight-bold">{{ $notif->nama_barang }}</span> telah habis</p>
+                    </div>
+                  </a>
+                  @endif
+                  @if($notif->stok == 1)
+                  <a class="dropdown-item preview-item py-3">
+                    <div class="preview-thumbnail">
+                      <i class="mdi mdi-alert m-auto text-primary"></i>
+                    </div>
+                    <div class="preview-item-content">
+                      <h6 class="preview-subject font-weight-normal text-dark mb-1">Barang Perlu Di Restock</h6>
+                      <p class="font-weight-light small-text mb-0"><span class="font-weight-bold">{{ $notif->nama_barang }}</span> tersisa {{ $notif->stok }} digudang </p>
                     </div>
                   </a>
                   @endif
@@ -236,30 +247,41 @@
                     <div class="row">
                       <div class="col-12">
                         @if($cek_supply_system->status == 1)
-                          @foreach($notifications as $notif)
-                          @if($notif->stok != 0)
-                          <div class="d-flex justify-content-start align-items-center mb-3">
-                            <div class="icon-notification">
-                              <i class="mdi mdi-alert m-auto text-warning"></i>
-                            </div>
-                            <div class="text-group ml-3">
-                              <p class="m-0 title-notification">Barang Hampir Habis</p>
-                              <p class="m-0 description-notification">Stok {{ $notif->nama_barang }} tersisa {{ $notif->stok }}</p>
-                            </div>
+                        @foreach($notification as $notif)
+                        @if($notif->stok != 1)
+                        <a class="dropdown-item preview-item py-3">
+                          <div class="preview-thumbnail">
+                            <i class="mdi mdi-alert m-auto text-warning"></i>
                           </div>
-                          @else
-                          <div class="d-flex justify-content-start align-items-center mb-3">
-                            <div class="icon-notification">
-                              <i class="mdi mdi-alert m-auto text-danger"></i>
-                            </div>
-                            <div class="text-group ml-3">
-                              <p class="m-0 title-notification">Barang Telah Habis</p>
-                              <p class="m-0 description-notification">Stok barang {{ $notif->nama_barang }} telah habis</p>
-                            </div>
+                          <div class="preview-item-content">
+                            <h6 class="preview-subject font-weight-normal text-dark mb-1">Barang Hampir Habis</h6>
+                            <p class="font-weight-light small-text mb-0"> Stok {{ $notif->nama_barang }} tersisa {{ $notif->stok }} </p>
                           </div>
-                          @endif
-                          @endforeach
+                        </a>
+                        @else
+                        <a class="dropdown-item preview-item py-3">
+                          <div class="preview-thumbnail">
+                            <i class="mdi mdi-alert m-auto text-danger"></i>
+                          </div>
+                          <div class="preview-item-content">
+                            <h6 class="preview-subject font-weight-normal text-dark mb-1">Barang Telah Habis</h6>
+                            <p class="font-weight-light small-text mb-0"> Stok {{ $notif->nama_barang }} telah habis</p>
+                          </div>
+                        </a>
                         @endif
+                        @if($notif->stok == 1)
+                        <a class="dropdown-item preview-item py-3">
+                          <div class="preview-thumbnail">
+                            <i class="mdi mdi-alert m-auto text-primary"></i>
+                          </div>
+                          <div class="preview-item-content">
+                            <h6 class="preview-subject font-weight-normal text-dark mb-1">Barang Perlu Di Restock</h6>
+                            <p class="font-weight-light small-text mb-0">{{ $notif->nama_barang }} tersisa {{ $notif->stok }} digudang </p>
+                          </div>
+                        </a>
+                        @endif
+                        @endforeach
+                      @endif
                       </div>
                     </div>
                   </div>
@@ -282,13 +304,6 @@
               </div>
             </div>
           </div>
-          <footer class="footer" id="footer-content">
-            <div class="container-fluid clearfix">
-              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019 <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i>
-              </span>
-            </div>
-          </footer>
         </div>
       </div>
     </div>

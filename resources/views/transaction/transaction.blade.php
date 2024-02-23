@@ -185,9 +185,6 @@
                     <button class="btn btn-search" data-toggle="modal" data-target="#tableModal" type="button">
                       <i class="mdi mdi-magnify"></i>
                     </button>
-                    <button class="btn btn-scan" data-toggle="modal" data-target="#scanModal" type="button">
-                      <i class="mdi mdi-crop-free"></i>
-                    </button>
                   </div>
                 </div>
               </div>

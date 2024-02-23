@@ -65,11 +65,8 @@
               </div>
               <div class="form-group row">
                 <label class="col-lg-3 col-md-3 col-sm-12 col-form-label font-weight-bold">Kode Barang</label>
-                <div class="col-lg-7 col-md-7 col-sm-10 col-10">
+                <div class="col-lg-9 col-md-7 col-sm-10 col-10">
                   <input type="text" class="form-control" name="kode_barang">
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-2">
-                  <button class="btn btn-inverse-primary btn-sm btn-scan shadow-sm" type="button"><i class="mdi mdi-crop-free"></i></button>
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-12 offset-lg-3 offset-md-3 error-notice" id="kode_barang_error"></div>
               </div>
@@ -79,6 +76,7 @@
                   <select class="form-control" name="jenis_barang">
                     <option value="Produksi">Produksi</option>
                     <option value="Konsumsi">Konsumsi</option>
+                    <option value="Lain-Lain">Lain Lain</option>
                   </select>
                 </div>
               </div>
@@ -96,10 +94,10 @@
                       <input type="text" class="form-control number-input input-notzero" name="berat_barang">
                       <div class="input-group-append">
                         <select class="form-control" name="satuan_berat">
+                          <option value=""></option>
                           <option value="kg">Kilogram</option>
                           <option value="g">Gram</option>
                           <option value="ml">Miligram</option>
-                          <option value="oz">Ons</option>
                           <option value="l">Liter</option>
                           <option value="ml">Mililiter</option>
                         </select>
@@ -204,22 +202,17 @@
                   <td>{{ $product->berat_barang }}</td>
                   <td>{{ $product->merek }}</td>
                   @if($supply_system->status == true)
-                  <td><span class="ammount-box bg-secondary"><i class="mdi mdi-cube-outline"></i></span>{{ $product->stok }}</td>
+                    <td><span class="ammount-box bg-secondary"><i class="mdi mdi-cube-outline"></i></span>{{ $product->stok }}</td>
                   @endif
-                  <td><span class="ammount-box bg-green"><i class="mdi mdi-coin"></i></span>Rp. {{ number_format($product->harga,2,',','.') }}</td>
+                    <td><span class="ammount-box bg-green"><i class="mdi mdi-coin"></i></span>Rp. {{ number_format($product->harga,2,',','.') }}</td>
                   @if($supply_system->status == true)
-                  <td>
-                  <!-- @if($product->keterangan == 'Tersedia')
-                  <span class="btn tersedia-span">{{ $product->keterangan }}</span>
-                  @else
-                  <span class="btn habis-span">{{ $product->keterangan }}</span>
-                  @endif -->
-                  @if($product->keterangan == 'Tersedia')
-                    <span class="btn tersedia-span">{{ $product->keterangan }}</span>
+                    <td>
+                    @if($product->keterangan == 'Tersedia')
+                      <span class="btn tersedia-span">{{ $product->keterangan }}</span>
                     @elseif($product->keterangan == 'Gudang')
-                    <span class="btn gudang-span">{{ $product->keterangan }}</span>
+                      <span class="btn gudang-span">{{ $product->keterangan }}</span>
                     @else
-                    <span class="btn habis-span">{{ $product->keterangan }}</span>
+                      <span class="btn habis-span">{{ $product->keterangan }}</span>
                   @endif
                   </td>
                   @endif
