@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout</title>
+
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+
+        #grid{
+            display: grid;
+            width: 100%;
+            height: 100vh;
+            grid-template: 
+                [nav] "nav nav" 100px [nav]
+                [main] "main main" 50% [main]
+                [side] "side side" [side]
+                [foot] "foot foot" 35px [foot]
+            / 100%;
+        }
+
+        nav{
+            background-color: gray;
+            grid-area: nav;
+        }
+        main{
+            background-color: blue;
+            grid-area: main;
+        }
+        aside{
+            background-color: purple;
+            grid-area: side;
+        }
+        footer{
+            background-color: rgb(47, 130, 255);
+            grid-area: foot;
+        }
+
+        .menu ul{
+            display: flex;
+            justify-content: center;
+        }
+        .menu ul li{
+            padding-right: 30px;
+        }
+
+        main .content-title {
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        main .content {
+            text-align: justify;
+            color: white;
+        }
+        main .content a{
+            color: rgb(255, 0, 4);
+        }
+
+        .menu-nav .heading {
+            align-items: center;
+            justify-content: center;
+        }
+
+        .heading{
+            padding: 0 15px 0 15px;
+            display: flex;
+            text-align: center;
+        }
+
+        .heading img{
+            padding-right: 10px;
+        }
+
+        aside .content{
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="grid">
+        <nav>
+            <div class="menu-nav">
+                <div class="heading">
+                    <img src="logo.jpg" alt="" width="60px">
+                    <div class="title">
+                        <h3>SMK INFORMATIKA KOTA SERANG</h3>
+                    </div>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li>
+                            <a href="">Home</a>
+                        </li>
+                        <li>
+                            <a href="">About</a>
+                        </li>
+                        <li>
+                            <a href="">Profile Sekolah</a>
+                        </li>
+                        <li>
+                            <a href="https://en.wikipedia.org/">Tutorial</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <div class="content-title">
+                <h3>Sejarah Bahasa Pemrograman</h3>
+            </div>
+            <div class="content">
+                The history of programming languages spans from documentation of early mechanical computers to modern tools for software development. Early programming languages were highly specialized, relying on mathematical notation and similarly obscure syntax.[1] Throughout the 20th century, research in compiler theory led to the creation of high-level programming languages, which use a more accessible syntax to communicate instructions.
+    
+                The first high-level programming language was Plankalkül, created by Konrad Zuse between 1942 and 1945.[2] The first high-level language to have an associated compiler was created by Corrado Böhm in 1951, for his PhD thesis.[3] The first commercially available language was FORTRAN (FORmula TRANslation), developed in 1956 (first manual appeared in 1956, but first developed in 1954) by a team led by John Backus at IBM.
+                <br><a href="https://en.wikipedia.org/wiki/History_of_programming_languages">Sumber : Wikipedia</a>
+
+                <img src="logo.jpg" alt="">
+                <img src="https://www.pepe.lt/wp-content/uploads/colorear/lietus-ir-vaivorykste-913x1024.jpg" alt="">
+            </div>
+        </main>
+        <aside>
+            <div class="content">
+                   <script type="text/php">
+                       
+                    </script>
+
+                    <pre>
+                        < ?php if(isset($_POST[]){
+                            $alas = $_POST['alas'];
+                            $tinggi = $_POST['tinggi'];
+                            
+                            $luas = $alas*$tinggi/2;
+                            echo "Luas segitiga = ". $luas;
+                            });
+                        ?>
+                    </pre>
+                </div>
+            </aside>
+        <footer>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="">Home</a>
+                    </li>
+                    <li>
+                        <a href="">About</a>
+                    </li>
+                    <li>
+                        <a href="">Profile Sekolah</a>
+                    </li>
+                    <li>
+                        <a href="https://en.wikipedia.org/">Tutorial</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
